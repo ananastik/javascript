@@ -14,7 +14,7 @@
 
 //     console.log(showLikes(likes));
 
-    let numbers = ([5, 10, 15, 25, 3, 0.1, 2.2]);
+    let numbers = ([-2, -4, 5]);
 
 const showLikes = (likes) =>{
     let size = numbers.length;
@@ -33,3 +33,5 @@ const showLikes = (likes) =>{
        }
 
     console.log(showLikes(numbers));
+
+    // sort(), filter()
