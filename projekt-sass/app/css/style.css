@@ -1,0 +1,17 @@
+body {
+  background-color: LIME; }
+
+p {
+  color: red; }
+
+div#container {
+  background-color: LIME;
+  border: 1px dashed blue;
+  color: red; }
+  div#container ul.lista {
+    background-color: aqua; }
+    div#container ul.lista li.item {
+      background-color: beige;
+      margin: 5px;
+      color: red;
+      margin-left: 120px; }

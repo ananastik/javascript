@@ -1,0 +1,8 @@
+@mixin ramka {
+    border: 1px dashed blue;
+    color: red;
+}
+
+@mixin marginlr ($wartosc) {
+margin-left: $wartosc;
+}

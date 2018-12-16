@@ -1,0 +1,24 @@
+@import "zmienne";
+@import "mixins";
+
+body {
+    background-color: $bg-base-color;
+}
+
+p {
+    color: $base-color;
+}
+
+div#container{
+    background-color: $bg-base-color;
+    @include ramka;
+    ul.lista{
+        background-color: aqua;
+        li.item{
+            background-color: beige;
+            margin: 5px;
+            color: $base-color;
+            @include marginlr (120px);
+        }
+    }
+}
