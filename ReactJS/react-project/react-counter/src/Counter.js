@@ -1,46 +1,40 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import './Counter.css';
 import ButtonsPanel from './ButtonsPanel.js';
+import NumericInput from 'react-numeric-input';
 
-// // komponent funkcyjny
-// const Counter = () => {
-//     return (
-//         <div className="counter">Licznik</div>
-//     );
-// }
-
-//komponent klasowy
 class Counter extends Component {
     constructor(props) {
         super(props);
-        let initValue=0;
-    if (! isNaN(this.props.initValue)) {
-        initValue = parseInt(this.props.initValue);
-    }
-        this.state = {
-          counterValue: initValue,
+        let initValue = 0;
+        if (! isNaN(this.props.initValue)) {
+            initValue = parseInt(this.props.initValue);
         }
-      }
-    
-      changeValue = () => {
-        // let curValue = this.state.counterValue;
-        // this.setState(
-        //   {
-        //     counterValue: curValue+1,
-        //   }
-        // );
-    
-        this.setState((prevValue) =>{
-          return({
-            counterValue: prevValue.counterValue+1,
-          });
+        this.state = {
+            counterValue: initValue,
+        }
+    }
+    changeValue = () => {
+        let newvalue=0;
+        this.setState((prevValue) => {
+            return ({
+                counterValue: prevValue.counterValue + this.props.value
+            });
+        });
+    }
+
+    resetCounter = (resetCounter) => {
+        let initValue=0;
+
+        this.setState({
+            counterValue: initValue,
         });
       }
 
-      resetCounter = (resetCounter) => {
+      reinitCounter = (reinitCounter) => {
         let initValue=0;
 
-        if(!resetCounter){
+        if(!reinitCounter){
             if (! isNaN(this.props.initValue)) {
                 initValue = parseInt(this.props.initValue);
             }
@@ -52,15 +46,14 @@ class Counter extends Component {
 
     render() {
         return (
-            <div className="counter">
-                Licznik:
-            <span className="value">
+            <div className='counter'>Licznik:
+        <span className='value'>
                     {this.state.counterValue}
-            </span>
-            <ButtonsPanel resetCounterValue={this.resetCounter} changeCounterValue={this.changeValue} />
+                </span>
+                <ButtonsPanel reinitCounterValue={this.reinitCounter} resetCounterValue={this.resetCounter} changeCounterValue={this.changeValue} />
+                <NumericInput min={0} max={100} value={1}/>
             </div>
         );
     }
 }
-
 export default Counter;
